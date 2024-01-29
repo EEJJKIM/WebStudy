@@ -29,6 +29,7 @@
 	function winScrollBy(xnum, ynum, elem) {		
 		// 문서 상단에서 윈도우 스크롤(상대위치) 버튼까지의 거리를 구한다.
 		let btnTop = elem.style.top;
+		console.log(btnTop);
 		
 		/* 윈도우 스크롤(상대위치) 버튼의 Y축 위치는 단위를 포함하여(예 : 100px)
 		 * 반환되기 때문에 String 객체의 substring() 메소드와 indexOf() 메소드를

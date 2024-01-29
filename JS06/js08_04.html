@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+</head>
+<body>
+	<div id="container">
+		<div class="header">
+			<h1>DOM Tree</h1>
+		</div>		
+		<div class="content">
+			<!-- 앞으로 스터디 할 목록 -->
+			<h2>프로그래밍 스터디 계획</h2>
+			<ul id="plan">
+				<li class="plan-list">JavaScript 함수</li>
+				<li class="plan-list">JavaScript DOM</li>
+				<li class="plan-list">JavaScript Event</li>
+				<li class="plan-list">jQuery 함수 선택자</li>					
+				<li class="plan-list">jQuery Effect</li>
+			</ul>
+		</div>
+		<div class="content">
+			<!-- 완료된 스터디 목록 -->
+			<h2>프로그래밍 스터디 완료</h2>
+			<ul id="done">
+				<li class="done-list">HTML 기본 태그</li>
+				<li class="done-list">HTML5 시멘틱 태그</li>
+				<li class="done-list">CSS3 선택자</li>
+				<li class="done-list">CSS3 박스모델</li>
+				<li class="done-list">JavaScript 제어문</li>
+			</ul>
+		</div>
+	</div>	
+	<script>
+//문서객체의 추가수정삭제
+const plan = document.querySelector("#plan");
+// plan.innerHTML+= "<li>test</li>"
+const li1 = document.createElement("li")
+li1.textContent = "오라클SQL스터디준비"
+plan.append(li1);
+const li2= li1.cloneNode(true);
+plan.prepend(li2);
+li2.textContent = "텍스트 바꿈. JavaScript 제어문 복습"
+const li3=li2.cloneNode(true);
+li3.textContent = "텍스트 바꿈. 함수만들기 집중공략"
+//플랜의 1번째 자식을 선택하고 그 앞 before 에 li3를 넣겠다.
+const planChild1= plan.children[1];
+planChild1.before(li3);
+ // plan의 첫번째 자식 삭제하기
+plan.firstElementChild.remove();
+
+//plan의 1번째자식을 done의 2번재 플랜에 고대로 잘라내서 붙이기
+const done = document.querySelector ("#done");
+done.prepend(plan.firstElementChild); // 빼내서 추가하기
+
+//done의 1번째 자식 before에 (plan의 1번째 자식을 ) 넣는다
+done.children[1].before(plan.firstElementChild);
+
+
+
+
+	</script>
+	
+	
+</body>
+</html>

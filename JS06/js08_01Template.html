@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script>
+// 고전방식/ 모든 필요한 자원들이 다 읽어왔을때 ( img, 참조 외부문서 등 )
+window.onload = function(){
+	const plan = document.getElementById("plan");
+	console.log(plan.children);
+
+	const liTags = document.getElementsByTagName("li");
+	console.log(liTags);
+	console.log(liTags[3]);
+
+
+	// for(li of liTags){ // 하나씩 liTags에서 꺼내서 접근
+	// 	console.log(li);
+	// }
+
+	const doneList = document.getElementsByClassName("done-list");
+	console.log(doneList);
+//처음 만나는 것 1개만 선택하는 querySelector
+	const content= document.querySelector('.plan-list'); // 맨처음 만나는 1개만 가져온다
+	console.log(content);
+	//전체 선택하기
+	const contentAll= document.querySelectorAll('.plan-list'); // 맨처음 만나는 1개만 가져온다
+	console.log(contentAll);
+// 화살표함수 형식. function 없애고 괄호 다음에 화살표 추가
+	// contentAll.forEach( function (a,b)     {})
+	// contentAll.forEach(          (a,b)  => {})
+	contentAll.forEach((value, i)=>{
+		console.log(i,value);
+	});
+
+
+
+// ES6 방식: event로 하려면? DomContentLoaded가 좀 더 빠르다.  DOM만 메모리가 만들어지면 실행)
+// document.addEventListener("DOMContentLoaded", function()
+// {	// Collelction은 여러 객체를 모아놓은 것임 
+// });
+}
+</script>
+</head>
+<body>
+	<div id="container">
+		<div class="header">
+			<h1>DOM Tree</h1>
+		</div>		
+		<div class="content">
+			<!-- 앞으로 스터디 할 목록 -->
+			<h2>프로그래밍 스터디 계획</h2>
+			<ul id="plan">
+				<li class="plan-list">JavaScript 함수</li>
+				<li class="plan-list">JavaScript DOM</li>
+				<li class="plan-list">JavaScript Event</li>
+				<li class="plan-list">jQuery 함수 선택자</li>					
+				<li class="plan-list">jQuery Effect</li>
+			</ul>
+		</div>
+		<div class="content">
+			<!-- 완료된 스터디 목록 -->
+			<h2>프로그래밍 스터디 완료</h2>
+			<ul id="done">
+				<li class="done-list">HTML 기본 태그</li>
+				<li class="done-list">HTML5 시멘틱 태그</li>
+				<li class="done-list">CSS3 선택자</li>
+				<li class="done-list">CSS3 박스모델</li>
+				<li class="done-list">JavaScript 제어문</li>
+			</ul>
+		</div>
+	</div>		
+</body>
+</html>
