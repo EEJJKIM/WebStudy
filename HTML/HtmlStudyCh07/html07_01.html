@@ -1,0 +1,124 @@
+﻿<!-- 시멘틱 요소를 사용한 웹 문서 만들기2 -->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>시멘틱 요소를 사용한 웹 문서 만들기2</title>
+<style>
+body {
+	font-size: 1em;
+	color: #333;
+	font-family: "맑은 고딕";
+}
+header, article, footer, #sidemenu {
+	border: 1px solid #999;
+	margin:5px;
+	padding:10px;
+}
+header {
+	height: 100px;
+	background-color: #FC0;
+}
+article {
+	float:right;
+	width:70%;
+	font-size: 0.75em;
+	line-height: 1.5em;
+}
+figure {
+	float:right;
+	margin:5px;	
+}
+figure img {
+	border:1px solid #666;
+	box-shadow:#CCC 5px 5px 5px;
+}
+figcaption {
+	text-align:center;
+}
+section {
+	width:95%;
+	height:100px;
+	padding:10px;
+	background-color: #FF9;
+	clear:both;
+}
+#sidemenu {
+	float:left;
+	width:20%;
+	height:200px;
+}
+#sidemenu ul {
+	list-style:none;
+}
+footer {
+	clear:both;
+	height:100px;
+	background-color: #6CF;
+}
+nav ul {
+	list-style:none;
+	float:right;
+}
+nav ul li {	
+	display: inline-block;
+	margin:0 20px;
+}
+aside {
+	width:90%;
+	height:60px;
+	border:1px solid #09F;
+}
+hgroup {
+	border-bottom: 1px solid #F90;
+}
+</style>
+</head>
+<body>
+	<header> 머리말 영역 
+		<nav>
+		    <ul>
+		        <li>Nav menu 1</li>
+		        <li>Nav menu 2</li>
+		        <li>Nav menu 3</li>
+		    </ul>
+		</nav>
+	</header>
+	<div id="sidemenu">사이드 메뉴
+	    <ul>
+	        <li>Menu 1</li>
+	        <li>Menu 2</li>
+	        <li>Menu 3</li>
+	    </ul>
+	    <!-- 
+			본문과는 별도의 내용으로 구성된 영역을 분리시킬 때 aside 요소를 사용한다.
+			aside 요소는 주로 배너나, 다른 사이트를 링크할 때 사용한다.
+		-->
+	    <aside>
+	    	보조적인 asdie 내용
+	    	주로 배너나, 외부 사이트 링크
+	    </aside>
+	</div>
+	<article> 
+		<!-- 제목을 그룹으로 묶을 때 hgroup 요소를 사용한다. -->
+	    <hgroup>
+	        <h1>본문이 들어가는 곳입니다. </h1>
+	        <h2>훈민정음을 예로 넣었습니다. </h2>
+	    </hgroup>	
+	    <figure> <img src="images/myungjun_20130105.jpg" width="241" height="160">
+		<!--
+			figure 요소와 figcaption 요소는 이미지, 사진, 도표와 같은 개체에
+			설명글을 입력하여 그룹화 시키는 요소이다. 
+		-->
+	    <figcaption>그림 설명 들어가는 곳-명준 수산시장 가다</figcaption>
+	    </figure>
+	    <p>나랏님(세종) 말씀이, 우리나라의 말이 중국말과 달라 <mark>한자로는
+	    	서로 (의사)소통하지 아니하므로</mark> 이런 까닭에 어리석은 백성이 
+	    	이르고자 하는 바가 있어도 마침내 그 뜻을 (글자에) 실어서 펴지 못하는 사람이
+	    	많으니라. 내가 이를 불쌍히 여겨서 새로 스물여덟개의 글자를 만드니 사람마다
+	    	쉽게 익혀서 날로 써서 편안하게 할 따름이니라.</p>         
+	    <section> 섹션이 들어가는 곳 </section>
+	</article>
+	<footer>꼬리말 영역<small>&copy;국어사랑</small></footer>
+</body>
+</html>

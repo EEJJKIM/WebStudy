@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function closeWindow(){
+            let input=confirm("프로그램을 종료할까요?");
+            if(input){
+                window.close();
+            }else{
+                alert("그럴 줄 알았어요^-^");
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="현재창닫기" onclick="closeWindow()">
+    
+</body>
+</html>

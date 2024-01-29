@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>구조 가상클래스 선택자</title>
+    <style>
+      li {
+        list-style: none;
+        float: left;
+        padding: 10px;
+        width: 80px;
+      }
+      body > p {
+        clear: both;
+      }
+      /* 왼상, 오상, 오하, 왼하 순으로 border-radius */
+      li:first-child {
+        background-color: pink;
+        border-radius: 10px 0px 0px 10px;
+      }
+      li:last-child {
+        background-color: pink;
+        border-radius: 0px 10px 10px 0px;
+      }
+      /* 홀수번째 list, Nth-child */
+      li:nth-child(2n) {
+        background-color: skyblue;
+      }
+      li:nth-child(2n + 1) {
+        background-color: pink;
+      }
+      /* 부모 요소의 양쪽(좌우)에서 떨어져 있는 모든 요소를 해제(clear) */
+
+      p:first-child {
+        font-size: 20px;
+      }
+	  p:first-child>em{
+		color:blue;
+	  }
+	  p:first-of-type{
+		border:3px solid violet;
+	  }
+    </style>
+  </head>
+  <body>
+    <!-- body 요소의 첫 번째 위치하는 ul 요소 -->
+    <ul>
+      <li>first</li>
+      <li>second</li>
+      <li>third</li>
+      <li>fourth</li>
+      <li>fifth</li>
+      <li>sixth</li>
+      <li>seventh</li>
+    </ul>
+    <p>body 레벨의 p 태그가<em>처음이면서 마지막으로</em> 등장</p>
+	<!-- p의 부모를 기준으로!!
+		 첫번째 자식인지 아닌지? 부모인 body를 기준으로 
+		 첫번째 오는 p이므로. 
+		 type을 기준으로 하느냐? first-child 기준으로 하느냐? --> 
+    <div id="div1">
+      <p>div 1 레벨의 p 태그가<em>첫 번째이면서 처음으로</em> 등장</p>
+      <p>div 1 레벨의 p 태그가<em>두번째</em>등장</p>
+      <p>div 1 레벨의 p 태그가<em>마지막이면서 세번째, 마지막 번째</em> 등장</p>
+      <div>11</div>
+    </div>
+    <div id="div2">
+      <div id="divSub">
+        <p>
+          divSub 레벨의 p 태그가<em>첫 번째 이면서 처음으로 마지막으로, 첫번째, 마지막 번째</em>
+          등장
+        </p>
+      </div>
+      <p>div2 레벨의 p 태그가 <em>처음으로 마지막으로, 마지막번째</em> 등장</p>
+    </div>
+  </body>
+</html>

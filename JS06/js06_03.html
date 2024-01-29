@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Member {
+        constructor(name, id, address) {
+          this.name = name;
+          this.id = id;
+          this.address = address;
+        }
+        //생성자는 객체를 '초기화'하는 것.
+        // 객체를 실제로 생성하는 것은 new로 생성.
+        toString() {
+          return `
+                <p>
+                    이름 : ${this.name} <br>
+                    아이디 : ${this.id} <br>
+                    주소 : ${this.address} <br>
+                </p>
+                `;
+        }
+      }
+
+      const Student= class{
+        constructor(name,grade){
+            this.name=name;
+            this.grade=grade;         
+        }
+
+        toString() {
+          return `
+                <p>
+                    이름 : ${this.name} <br>
+                    학년 : ${this.grade} <br>
+                </p>
+                `;
+        }
+      }
+
+      const member = new Member("홍길동","midas", "서울 관악구 봉천동")
+      const s1= new Student("임꺽정", 3);
+      const s2= new Student("장길산", 4);
+    //   접근하는 방법은
+    document.write(s1);
+    document.write(member.name+ "<br>");
+    document.write(s1["grade"]);
+    document.write(s2);
+      
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>박스를 다양한 유형으로 표시하기(display)</title>
+<style>
+	ul#nav {
+		list-style-type: none;
+		width: 500px;		
+		margin: 30px auto;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	ul#nav > li {
+		/* display 속성은 해당 요소를 어떻게 보여 질 것인지를 지정하는 속성이다.
+		 * li 요소는 블록 요소로 display: inline-block을 지정하면 인라인 요소와 같이
+		 * 한 줄로 연결되어 표시되고 블록 요소와 같이 자신의 너비를 가질 수 있다.
+		 * display 속성에 지정할 수 있는 값은 아주 많으므로 레퍼런스를 참조하길
+		 * 바라며 일반적으로 많이 사용하는 값은 아래와 같다.
+		 * 
+		 * block : 요소를 블록 레벨로 만든다.
+		 * inline : 요소를 인라인 레벨로 만든다. 
+		 * inline-block : 블록 레벨 요소이지만 인라인 레벨 요소처럼 배치한다.
+		 * none : 요소를 만들지 않으며 화면에도 보이지 않는다.
+		 *
+		 * table : 블록 레벨의 표로 만든다.
+		 * table-row : tr 태그를 사용한 것 처럼 표의 행으로 만든다.
+		 * table-cell : th 또는 td 태그를 사용한 것 처럼 하나의 테이블 셀로 만든다.
+		 * 
+		 * list-item : 목록을 표시할 수 있도록 기본적인 블록 박스와 표시자 박스를 만든다.
+		 *
+		 * flex : block 타입의 플렉스 박스로 만든다.
+		 * inline-flex : inline 타입의 플렉스 박스로 만든다.
+		 **/
+		display: inline-block;
+		margin-left: -7px;
+		width: 100px;
+		border: 1px solid #ffeaea;
+		text-align: center;		
+		font-size: 20px;
+	}
+	ul#nav > li:hover {
+		background-color: #ffeaea;
+	}
+	a:link {
+		text-decoration: none;
+	}	
+	img {	
+		/* display 속성은 해당 요소를 어떻게 보여 질 것인지를 지정하는 속성이다.
+		 * img 요소는 인라인 요소로 display: block을 지정하면 블록 요소로
+		 * 바뀌어 블록을 쌓듯이 한 줄에 하나씩 줄을 바꿔가며 아래로 표시된다.
+		 **/
+		display: block;
+		width: 300px;
+		margin: 20px auto;
+		border: 2px solid #FAEAEA;
+		border-radius: 10px;
+		box-shadow: 5px 5px 3px #ccc;
+	}
+	
+	/* display 속성을 이용해 테이블로 표시되도록 함 */
+	.table {
+		display: table;
+	}
+	.table_row {
+		display: table-row;
+	}
+	.table_cell.th {		
+		width: 200px;
+		height: 30px;
+		background-color: #AAA;		
+		font-weight: bold;
+	}
+	.table_cell {
+		display: table-cell;
+		border: 1px solid blue;
+		width: 200px;
+		height: 30px;
+		vertical-align: middle;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	<header>
+		<h2>박스를 다양한 유형으로 표시하기(display)</h2>
+	</header>
+	<ul id="nav">
+		<li><a href="">홈</a></li>
+		<li><a href="">쇼킹딜</a></li>
+		<li><a href="">베스트</a></li>
+		<li><a href="">장보기</a></li>
+		<li><a href="">로그인</a></li>
+	</ul>
+	<section>
+		<img src="images/myungjun00_600p.jpg" />
+		<img src="images/myungjun03_600p.jpg" />
+		<img src="images/myungjun06_600p.jpg" />
+	</section>	
+	<ul class="table">
+		<li class="table_row">			
+			<div class="table_cell th">이름</div>
+			<div class="table_cell th">생년월일</div>
+			<div class="table_cell th">성별</div>
+			<div class="table_cell th">나이</div>
+		</li>
+		<li class="table_row">			
+			<div class="table_cell">홍길동</div>
+			<div class="table_cell">1989년 11월 12일</div>
+			<div class="table_cell">남자</div>
+			<div class="table_cell">31</div>
+		</li>
+	</ul>
+</body>
+</html>

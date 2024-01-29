@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS의 목록 속성</title>
+<style>
+	body {
+		/* font-size 와 font-family 를 지정 */
+		font:  0.9em "맑은 고딕", "돋움", sans-serif;
+	}
+	#webStandard {		
+		list-style-image: url(images/arrow.gif);
+		
+		/* 마커(marker)를 들여쓰기 한다. 기본 값은 outside 이다. */
+		list-style-position: inside;
+		/* list-style: url(images/arrow.gif) inside; */
+	}
+	#listJavaScript {
+		/* 아래는 로마 대문자 숫자를 지정하고 있다. 이 외에도
+		 * decimal, lower-roamn, uppder-alpha, lower-alpha 등을 지정할 수 있다.
+		 **/
+		list-style-type: upper-roman;
+		
+		/* 마커(marker)를 내여 쓰기 한다. 기본 값은 outside 이다. */
+		list-style-position: outside;
+	}	
+</style>
+</head>
+<body>
+	<header>	
+		<h1>CSS에서 목록 속성 다루기</h1>
+	</header>
+	<section>
+		<article>
+			<h3>웹 표준 도서 목록</h3>
+			<ul id="webStandard">				
+				<li>HTML5+CSS3+JavaScript 웹 프로그래밍</li>
+				<li>HTML5와 CSS3로 웹 프로그래밍 시작하기</li>				
+			</ul>		
+		</article>
+		<article>
+			<h3>자바스크립트 도서 목록</h3>
+			<ol id="listJavaScript">				
+				<li>자바스크립트 완벽 가이드</li>						
+				<li>모던 웹을 위한 자바스크립트</li>
+			</ol>
+		</article>		
+	</section>
+</body>
+</html>

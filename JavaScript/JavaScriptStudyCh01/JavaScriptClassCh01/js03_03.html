@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //입력받은 값이 3의 배수, 7의 배수인지 판단할 것인데
+      function inputMultiple() {
+        let input = document.form1.inputName;
+        let inputNum = input.value;
+        let result = document.querySelector("#result");
+
+        if (isNaN(inputNum)) {
+            result.innerHTML = `
+          <strong>입력값 ${inputNum}는 숫자가 아닙니다.</strong>
+          `;  
+        }
+        else if (inputNum % 3 == 0) {
+          result.innerHTML = `
+          <strong>입력값 ${inputNum}은 3의 배수입니다.</strong>
+          `;
+        } else if (inputNum % 7 == 0) {
+            result.innerHTML = `
+            <strong>입력값 ${inputNum}은 7의 배수입니다.</strong>
+            `;
+        } else { 
+            result.innerHTML = `
+            <strong>입력값 ${inputNum}은 3과 7의 배수가 아닙니다.</strong>
+            `;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form name="form1">
+      3의 배수 또는 7의 배수를 입력해 주세요 : <br /><br />
+      <input type="text" name="inputName" />
+      <input type="button" value="배수 입력" onclick="inputMultiple()" />
+    </form>
+    <div id="result"></div>
+  </body>
+</html>

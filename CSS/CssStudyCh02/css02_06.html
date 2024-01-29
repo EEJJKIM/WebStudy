@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상태 가상클래스 선택자</title>
+<style type="text/css">
+	* { font-size: 12px; }
+	div { line-height: 3em; }
+	input {		
+		padding: 3px 5px;
+	}
+	#id:focus, #pass:focus {
+		background-color: #FFEAEA;
+		border: 1px solid #FF9999;
+		outline: 0;
+	}
+	
+	/* id 속성 값이 interest_select인 요소가 checked 상태이면
+	 * 그 뒤로 오는 id가 check인 요소를 선택하여 선택한 요소의 
+	 * 너비와 높이를 지정하고 블록 레벨 요소로 화면에 표시되도록 설정한다.
+	 **/
+	#interest_select:checked ~ #check {		 
+		 width: 500px;
+		 height: 10px;
+		 display: block;
+	}
+	
+	/* id 속성 값이 interest_noselect인 요소가 checked 상태이면
+	 * 그 뒤로 오는 id가 check인 요소를 선택하여 선택한 요소를 화면에서
+	 * 보이지 않도록 설정한다. display: none이 지정되면 화면에도 
+	 * 보이지 않고 문서의 그 위치에서 자리 차지도 하지 않는다.  
+	 **/
+	#interest_noselect:checked ~ #check {		
+		display: none;
+	}	
+	
+	/* input 요소 중에서 disabled된 요소를 선택하여 배경색을 지정한다. */	
+	input:disabled { background-color: gray; }
+	
+	/* id 속성의 값이 choice인 요소가 체크된(checked) 상태이면  
+	 * 그 요소 뒤에 오는 id 속성의 값이 selection인 요소를 선택하여
+	 * 선택한 요소의 높이 50px로 지정한다.
+	 **/
+	#choice:checked ~ #selection {
+		height: 50px;		
+	}
+	
+	/* id 속성의 값이 choice인 요소 뒤에 오는 id 속성의 값이 selection인
+	 * 요소를 선택하고 선택한 요소의 너비와 높이를 설정한다. 높이를 0px로
+	 * 지정하였지만 #selection 요소의 내부에 선택상자가 있으므로 부모인
+	 * #selection 요소의 높이가 0px이 되면 부모의 크기 밖으로 선택상자가
+	 * 삐져나오기 때문에 #selection 요소의 내용물이 #selection 요소의
+	 * 크기를 초과하면 화면에서 숨기도록 overflow: hidden으로 설정하였다.  
+	 **/
+	#choice ~ #selection {		
+		width: 300px;
+		height: 0px;
+		overflow: hidden;
+	}	
+</style>
+<script>	
+	function checkedEmail() {
+		
+		// html 문서에서 id 속성의 값이 input_email인 문서 객체를 가져온다.		 
+		var chk = document.getElementById('input_email');
+		// var chk = document.querySelector("#input_email");
+		
+		/* chk는 html 문서에서 체크박스이므로 이 체크박스가 체크된 상태면 checked 
+		 * 속성은 true가 되어 if 문의 블록({}) 안의 코드가 실행되고 체크되지 않은 
+		 * 상태이면 false가 반환되어 else의 블록({}) 안의 코드가 실행된다.
+		 **/
+		if(chk.checked) {
+			
+			/* html 문서에서 name 속성의 값이 form1인 폼 안에서 name 속성의 
+			 * 값이 email인 input 요소를 찾아서 이 입력상자의 disabled 상태를
+			 * 해제하고 배경색을 흰색으로 글자색을 검정색으로 설정한다. 
+			 **/
+			document.form1.email.disabled = false;
+			document.form1.email.style.backgroundColor = '#FFFFFF';
+			document.form1.email.style.color = 'black';
+			
+		} else {
+			
+			/* html 문서에서 name 속성의 값이 form1인 폼 안에서 name 속성의 
+			 * 값이 email인 input 요소를 찾아서 이 입력상자의 disabled 상태를
+			 * 적용하고 배경색을 회색으로 글자색을 흰색으로 설정한다. 
+			 **/
+			document.form1.email.disabled = true;
+			document.form1.email.style.backgroundColor = 'gray';
+			document.form1.email.style.color = 'white'
+		}
+	}
+</script>
+</head>
+<body>
+	<h2>상태 선택자</h2>
+	<form name="form1" action="#">
+		<div>
+			아이디 : <input type="text" name="id" id="id" size="30"/>	<br/>	
+			비밀번호 : <input type="password" name="pass" id="pass" size="30"/><br/>
+			이메일 : <input type="text" name="email" id="email"size="30" disabled/>
+			<input type="checkbox" name="input_email" id="input_email" 
+				onclick="checkedEmail()"/>이메일 입력<br/>
+			관심분야 : <input type="radio" name="interest_select" id="interest_select"
+				value="interest_select" checked="checked"/>
+				<label for="interest_select">선택하기</label>
+				<input type="radio" name="interest_select" id="interest_noselect"
+				value="interest_noselect"/>
+				<label for="interest_noselect">선택하지 않음</label>
+			<div id="check">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="checkbox" name="interest" 
+					id="webapp" value="webapp"/>웹앱</label>
+				<label><input type="checkbox" name="interest" 
+					id="hybridapp" value="hybridapp">하이브리드앱</label>
+				<label><input type="checkbox" name="interest" 
+					id="nativeapp" value="nativeapp"/>네이티브앱</label>
+			</div><br/>
+			지역선택 : <input type="checkbox" name="choice_area" 
+				id="choice" value="choice" /><label for="choice">지역선택 함</label>
+			<div id="selection">
+			관심지역 : <select name="area" id="area">
+				<option value="서울">서울</option>
+				<option value="인천/경기">인천/경기</option>
+				<option value="강원도">강원도</option>
+				<option value="충청도">충청도</option>
+				<option value="전라도">전라도</option>
+				<option value="경상도">경상도</option>
+				<option value="제주도">제주도</option> 
+			</select>
+			</div>			
+		</div>
+	</form>
+</body>
+</html>

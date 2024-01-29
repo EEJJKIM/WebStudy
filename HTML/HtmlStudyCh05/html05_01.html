@@ -1,0 +1,36 @@
+<!-- 예제 5-1 웹 문서에 테이블 넣기 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>웹 문서에 테이블 넣기</title>
+	<style>
+		/* 
+			style 태그를 이용해 내부 스타일 방식으로 스타일 적용 
+			요소 선택자를 이용해 문서의 특정 요소를 선택하여 스타일을 지정
+		 */
+		table { width: 800px; border: 1px solid black; }
+		th { font-size: 20px; border: 1px solid black;}
+		tr { height: 30px; border: 1px solid black;}
+		td { text-align: center; border: 1px solid black;}
+	</style>
+</head>
+<body>
+	<h2>웹 문서에 테이블 넣기</h2>
+	<table>
+		<tr style="height: 50px; background-color: #EAEAEA">
+		<!-- 테이블에서 행 또는 열의 제목 셀을 표현할 때는 th 태그를 사용한다.  -->
+			<th>자바스크립트</th>
+			<th>Java</th>
+		</tr>
+		<tr>			
+			<td>자바스크립트 마스터북</td>
+			<td>자바의 정석</td>
+		</tr>
+		<tr>			
+			<td>자바스크립트 완벽 가이드</td>
+			<td>자바 프로그래밍 바이블</td>
+		</tr>	
+	</table>
+</body>
+</html>

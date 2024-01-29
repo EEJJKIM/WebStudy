@@ -1,0 +1,29 @@
+<!-- 예제 4-2 순서 없는 목록 구성하기 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>순서 없는 목록</title>
+</head>
+<body>
+	<h2>순서 없는 목록</h2>	
+	<!--
+		다음과 같이 순서 있는 목록 안에 순서 없는 목록을 사용하거나
+		순서 없는 목록 안에 순서 있는 목록을 중첩해서 사용할 수 있다.   
+	-->
+	<ol style="list-style-type: lower-roman">
+		<li>자바스크립트
+			<ul style="list-style-type: circle">				
+				<li>자바스크립트 완벽 가이드</li>
+				<li>node.js 프로그래밍</li>								
+			</ul>
+		</li>
+		<li>Java
+			<ul style="list-style-type: square">				
+				<li>자바의 정석</li>
+				<li>뇌를 자극하는 Java</li>				
+			</ul>
+		</li>
+	</ol>
+</body>
+</html>

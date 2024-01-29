@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+    
+    <script>
+        const N=120;
+        //약수 구하기 - 120의 약수 구하기
+        //1,2,3, ...
+        // 120 의 약수는 1,2,3, ...  120이며 20개 입니다.
+        // 마지막 콤마를 없애기 위해 if문
+        let count=0;
+        let divider="";
+
+        
+        for(let i = 1; i<=N; i++){
+        //현재 i가 120의 약수인지???? 
+            if(N%i==0){
+                count++; //개수를 0에서 1개식 증가해라
+                divider+= i+ (i<N ? ", ":""); // 자기 자신도 약수에 포함이니까, i<N일 때만 콤마 찍고, 아니면 비워두기 
+            }
+        }
+        document.write(`${N}의 약수는 ${divider}이며 모두 ${count}개입니다.`)
+    </script>
+</body>
+</html>

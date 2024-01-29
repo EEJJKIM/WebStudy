@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상태 가상클래스 선택자</title>
+
+<script>	
+	function checkedEmail() {
+		
+		// html 문서에서 id 속성의 값이 input_email인 문서 객체를 가져온다.		 
+		var chk = document.getElementById('input_email');
+		// var chk = document.querySelector("#input_email");
+		
+		/* chk는 html 문서에서 체크박스이므로 이 체크박스가 체크된 상태면 checked 
+		 * 속성은 true가 되어 if 문의 블록({}) 안의 코드가 실행되고 체크되지 않은 
+		 * 상태이면 false가 반환되어 else의 블록({}) 안의 코드가 실행된다.
+		 **/
+		if(chk.checked) {
+			
+			/* html 문서에서 name 속성의 값이 form1인 폼 안에서 name 속성의 
+			 * 값이 email인 input 요소를 찾아서 이 입력상자의 disabled 상태를
+			 * 해제하고 배경색을 흰색으로 글자색을 검정색으로 설정한다. 
+			 **/
+			document.form1.email.disabled = false;
+			document.form1.email.style.backgroundColor = '#FFFFFF';
+			document.form1.email.style.color = 'black';
+			
+		} else {
+			
+			/* html 문서에서 name 속성의 값이 form1인 폼 안에서 name 속성의 
+			 * 값이 email인 input 요소를 찾아서 이 입력상자의 disabled 상태를
+			 * 적용하고 배경색을 회색으로 글자색을 흰색으로 설정한다. 
+			 **/
+			document.form1.email.disabled = true;
+			document.form1.email.style.backgroundColor = 'gray';
+			document.form1.email.style.color = 'white'
+		}
+	}
+</script>
+<style>
+*{font-size: 12px;}
+div{line-height: 3em;}
+input{padding: 3px 5px;}
+#id:focus, #pass:focus{
+	background-color: #FFEAEA;
+	border: 1px solid #fFAAAA;
+	/* outline:0; */
+	
+}
+/* input에서 검은 테두리가 어디서 오는거길래 border가 안먹지? */
+#interest_select:checked ~#check{
+	width: 500px;
+	height: 10px;
+}
+#interest_noselect:checked~#check{
+display:none;
+}
+
+
+/* id=choice 가 체크되었을 때? ~#selection (id=selection)을  숨겨라*/
+#choice:checked ~#selection{
+	width: 300px;
+	height: 0px;
+	overflow:hidden;
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+	<h2>상태 선택자</h2>
+	<form name="form1" action="#">
+		<div>
+			아이디 : <input type="text" name="id" id="id" size="30"/>	<br/>	
+			비밀번호 : <input type="password" id="pass"  size="30"/><br/>
+			이메일 : <input type="text" name="email" id="email"size="30" disabled/>
+			<input type="checkbox" name="input_email" id="input_email" 
+				onclick="checkedEmail()"/>이메일 입력<br/>
+			관심분야 : <input type="radio" name="interest_select" id="interest_select"
+				value="interest_select" checked="checked"/>
+				<label for="interest_select">선택하기</label>
+				<input type="radio" name="interest_select" id="interest_noselect"
+				value="interest_noselect"/>
+				<label for="interest_noselect">선택하지 않음</label>
+			<div id="check">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="checkbox" name="interest" 
+					id="webapp" value="webapp"/>웹앱</label>
+				<label><input type="checkbox" name="interest" 
+					id="hybridapp" value="hybridapp">하이브리드앱</label>
+				<label><input type="checkbox" name="interest" 
+					id="nativeapp" value="nativeapp"/>네이티브앱</label>
+			</div><br/>
+			지역선택 : <input type="checkbox" name="choice_area" 
+				id="choice" value="choice" /><label for="choice">지역선택 함</label>
+			<div id="selection">
+			관심지역 : <select name="area" id="area">
+				<option value="서울">서울</option>
+				<option value="인천/경기">인천/경기</option>
+				<option value="강원도">강원도</option>
+				<option value="충청도">충청도</option>
+				<option value="전라도">전라도</option>
+				<option value="경상도">경상도</option>
+				<option value="제주도">제주도</option> 
+			</select>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

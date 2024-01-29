@@ -1,0 +1,34 @@
+<!-- 예제 3-2 절대경로와 상대경로 방식으로 링크 연결하기 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>절대경로와 상대경로 링크하기</title>
+</head>
+<body>
+	<h1>여기는 index.html 페이지</h1>
+	<b>현재 위치 : /HtmlStudy/HtmlStudyCh03/index.html</b>
+	<!-- 
+		절대경로 방식이란 최상의 루트에서부터 시작하여
+		연결할 문서가 위치한 하위 경로를 하나하나 지정하는 방식이다. 
+	-->
+	<h2>절대경로 방식으로 연결하기</h2>
+	<p><a href="http://127.0.0.1:5500/HtmlStudy/HtmlStudyCh03/main01.html">
+		main01.html 가기</a></p>
+	<p><a href="/HtmlStudy/HtmlStudyCh03/content01/content01.html">
+		content01.html 가기</a></p><br><br>	
+	<!-- 
+		상대경로 방식이란 현재 문서를 기준으로 연결할 문서가 위치한 경로를 지정하는 방식이다. 
+	-->
+	<h2>상대경로 방식으로 연결하기</h2>
+	<p><a href="main01.html">main01.html 가기</a></p>
+	<p><a href="content01/content01.html">content01.html 가기</a></p><br><br>
+</body>
+</html>
+
+
+
+
+
+
+

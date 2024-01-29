@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>속성 관련 선택자와 인접 선택자</title>
+    <style>
+       		* {font-size: 12px;}
+       		div{
+       		   width: 650px;
+       		   margin: 0px auto 0px auto;
+       		}
+       		/* margin에서 상-우-하-좌 순으로, 또는 상하 + 좌우 묶어서 */
+       		#imgs{
+       		   margin: 50px auto;
+       		}
+       		#buttons{
+       		   margin: 20px auto;
+       		   text-align: center;
+       		}
+       		img{
+       		   margin: 14.5px;
+       		}
+
+       /* *********** 속성으로 선택하는 속성 선택자 사용해보자!!!!  [ ] 대괄호로 속성을 선택*/
+       		input[type='text'] {text-align: right;}
+
+       /* '~'를 넣으면???  a태그속성에 11st 를 "포함한" a태그를 선택하여 css적용*/
+       /* <a  class="blank 11st" >을 선택하기 위한 것 ('한 덩어리' 문자를 정확히 써야함 )*/
+       		div a[class~='11st'] { color: white; background-color: red; }
+
+       /*  ^을 넣으면?? input 태그 속성에 first로 "시작하는" input태그를 선택하여 적용*/
+       		input [name^=first] { color: red; font-weight: bold; background-color: yellow; }
+
+       /*  $을 넣으면?? input 태그 속성에 png로 "끝나는" img 태그 선택하여 적용*/
+       		img[src$=png]{ border: 2px dashed blue; }
+
+       /* ' * ' 은? ' * 문자열 전체 내에서 포함되었는지 확인
+       <img src="images/responsive_web.png" /> 을 선택하기 위한 것. 클래스 이름중에 일부만 맞아도 선택되어야함*/
+       img[src*=javascript] {border: 2px dotted red;}
+       span [class*=first] {color:red; font-weight: bold;}
+
+
+	   /* span 바로 뒤에 있는 input을 선택할 때. input 입력란 색깔 지정 */ */
+       span + input {background-color: #FFEAEA;}
+
+	   /* 첫 div(제외) 부터 div 까지 선택할때. (ex. 첫번째 div 제외하고 두세번째 div들만 선택됨 */
+	   div ~ div {
+		background-color: #eaeaff;
+	   }    
+
+    </style>
+  </head>
+  <body>
+    <div id="link">
+      <a href="http://www.yes24.com">예스 24 참고하기</a>
+      <a
+        href="http://book.11st.co.kr/index.html"
+        target="_blank"
+        class="blank 11st"
+        >도서 11번가 참고하기</a
+      >
+    </div>
+    <div id="imgs">
+      <img src="images/modern_javascript.jpg" />
+      <img src="images/responsive_web.png" />
+      <img src="images/javascript_guide.jpg" />
+    </div>
+    <div id="form">
+      <form name="form1">
+        <span class="first_info">제일 읽고 싶은 도서를 입력해 주세요</span>
+        <input type="text" name="first_book" size="30" /><br />
+        <span class="second_info">그 다음 읽고 싶은 도서를 입력해 주세요</span>
+        <input type="text" name="second_book" size="30" /><br />
+        <div id="buttons">
+          <input type="submit" value="확인" />&nbsp;&nbsp;&nbsp;
+          <input type="reset" value="취소" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

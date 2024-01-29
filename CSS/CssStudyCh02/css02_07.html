@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구조 가상클래스 선택자</title>
+<style type="text/css">		
+	li { list-style: none; float: left; padding: 10px; }
+	
+	/* li 요소의 부모에서 첫 번째와 마지막 번째 li 요소를 선택해 둥근 모서리를 설정한다.
+	 * 아래와 같이 4개를 지정하면 좌 상단부터 시계방향으로 4방향의 둥근 모서리의 값을
+	 * 지정하는 것으로  좌 상단 - 우 상단 - 우 하단 - 좌 하단 순으로 지정하는 것이다.
+	 * 2개를 지정하면 서로 마주 보는 대각선을 짝으로 맞춰 둥근 모서리를 설정하는 것으로 
+	 * 좌 상단 - 우 하단, 우 상단 - 좌 하단의 둥근 모서리의 값을 설정하는 것이다.
+	 **/
+	li:first-child { border-radius: 5px 0px 0px 5px; }
+	li:last-child { border-radius: 0px 5px 5px 0px; }
+	
+	/* 수열을 적용한 위치를 지정하는 것으로 n의 값은 0부터 1씩 증가하는 수열 번째를
+	 * 의미하는데 아래와 같이 2n이 지정되면 0, 2, 4,... 와 같이 증가하는 수열이 되어
+	 * li 요소 부모의 자식 중에서 두 번째, 네 번째 li를 선택하게 되며 2n+1이 지정되면
+	 * 1, 3, 5,...와 같이 증가하는 수열이 되므로 li 요소 부모의 자식 중에서 첫 번째, 
+	 * 세 번째 요소가 선택되어 지정한 스타일이 적용된다.   
+	 **/
+	li:nth-child(2n) { background-color: #FFEAEA; }
+	li:nth-child(2n+1) { background-color: #FFC9C9; }
+	
+	body > p { clear: both; margin: 50px auto 20px; }
+	
+	/* p 요소 부모의 여러 자식 요소 중에서 첫 번째 위치하는 p 요소를 선택한다.
+	 * div1 요소의 첫 번째 p 요소와 divSub 요소의 첫 번째 p 요소가 선택되어
+	 * 글자의 크기가 24px로 지정된다.
+	 **/		
+	p:first-child { font-size: 24px; }
+	
+	/* p 요소 부모의 여러 자식 요소 중에서 첫 번째 위치하는 p 요소의 자식인 em 요소를
+	 * 선택하는 것으로 아래 HTML에서는 id가 div1 요소의 첫 번째 자식인 p 요소 안의
+	 * em 요소와 id가 divSub 요소의 첫 번째 자식인 p 요소 안의 em 요소가 선택되어
+	 * 글자색을 파란색으로 설정한다. 
+	 **/
+	p:first-child > em { color: blue; }	
+	
+	/* p 요소 부모의 여러 자식 요소 중에서 p 요소를 추출하여 추출한 p 요소 중에서 
+	 * 부모 요소를 기준으로 처음으로 등장하는 p 요소만 선택하는 것으로 아래 HTML에서는
+	 * body 요소의 자식 중에서 p 요소만 추출해서 그 중에 처음으로 등장하는 p 요소,
+	 * id가 div1 요소의 자식 중에서 p 요소만 추출해서 그 중에서 처음 등장하는 p 요소,
+	 * id가 div2 요소의 자식 중에서 p 요소만 추출해서 그 중에서 처음 등장하는 p 요소,
+	 * id가 divSub 요소의 자식 중에서 p 요소만 추출해서 그 중에서 처음 등장하는 p 요소, 
+	 * 이렇게 4개의 p 요소가 선택되어 파란색 실선의 테두리가 적용된다.
+	 **/	
+	p:first-of-type { border: 1px solid blue; }
+</style>
+</head>
+<body>
+	<!-- body 요소의 첫 번째 위치하는 ul 요소 -->
+	<ul>
+		<li>first</li>
+		<li>second</li>
+		<li>third</li>
+		<li>fourth</li>
+		<li>fifth</li>
+		<li>sixth</li>
+		<li>seventh</li>
+	</ul>	
+	<p>body 레벨의 p 태그가<em>처음이면서 마지막으로</em> 등장</p>
+	<div id="div1">		
+		<p>div 1 레벨의 p 태그가<em>첫 번째이면서 처음으로</em> 등장</p>
+		<p>div 1 레벨의 p 태그가<em>두 번째</em>등장</p>
+		<p>div 1 레벨의 p 태그가<em>마지막이면서 세 번째, 마지막 번째</em> 등장</p>
+		<div>11</div>
+	</div>
+	<div id="div2">
+		<div id="divSub">
+			<p>divSub 레벨의 p 태그가<em>첫 번째 이면서 처음으로 마지막으로, 
+				첫 번째, 마지막 번째</em> 등장</p>
+		</div>
+		<p>div2 레벨의 p 태그가 <em>처음으로 마지막으로, 마지막 번째</em> 등장</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>요소를 원하는 위치에 배치하기(position)</title>
+<style>
+	/* 요소 배치를 위한 속성들
+	 * position 속성은 요소를 문서의 어디에 배치할 지를 지정하는 위치 속성으로
+	 * 아래와 같이 5가지 속성 값을 지정할 수 있다.
+	 *
+	 * static : 요소를 문서의 흐름에 따라 배치한다. - 기본값
+	 * 			   top, botton, left, right를 사용해 위치를 임의대로 지정할 수 없다.
+	 * relative : 현재 요소가 나타나야 되는 위치를 기준으로 상대적인 좌표를 지정하여
+	 *				 배치한다.
+	 * absolute : 포지셔닝된 제일 가까운 상위 요소의 좌측 상단을 기준으로 지정한
+	 *					좌표에 배치된다.
+	 *			   포지셔닝된 제일 가까운 상위 요소의 좌측 상단을 기준으로 하기 때문에
+	 *				 문서가 스크롤 되면 기준이 되는 상위 요소를 따라서 위쪽으로 스크롤 된다.	 
+	 * fixed : 웹 브라우저의 뷰포트를 기준으로 지정한 위치에 고정해서 배치된다.
+	 *			웹 브라우저에서 문서가 표시되는 영역, 즉 웹 브라우저 화면의 안쪽 좌측 
+	 * 			상단을 기준으로 하기 때문에 문서가 스크롤 되어도 박스는 그 위치에 고정되어
+	 *			움직이지 않고 좌표 지정에 따라서 요소가 화면 밖으로 배치되어 보일 수 있다.
+	 * sticky : 평소에는 static 처럼 표시되다가 화면이 스크롤되어 좌표로 지정한 위치에
+	 * 			이르면 fixed와 같이 박스가 화면에 고정되어 배치된다.
+	 *			만약 body 요소 바로 아래의 요소가 아니라 그 하위의 안쪽 자식 요소인 경우
+	 *			지정한 위치에 이르면 fixed와 같이 박스가 화면에 고정되어 배치되다가 
+	 *			부모 요소의 아래 부분까지 모두 스크롤 되어 올라갈 때 부모 요소를 따라
+	 *			위쪽으로 스크롤 되어 올라간다.
+	 *
+	 *
+	 * visibility 속성은 요소를 화면에서 보이게 하거나 보이지 않게 또는 겹쳐서 
+	 * 표시할 수 있도록 지정하는 속성이다. 
+	 *
+	 * visible : 요소를 화면에 표시한다. - 기본값
+	 * hidden : 요소를 화면에서 감춘다. 화면에만 보이지 않을 뿐 크기 값은 그대로
+	 *				유지하고 자리를 차지하기 때문에 다른 요소의 배치에 영향을 준다.  
+	 * collapse : 표의 행이나 열, 행 그룹, 열 그룹 등에 지정해 테두리를 겹치도록 표시 
+	 * inherit : 부모의 visibility 속성을 상속한다.
+	 *
+	 * z-index 속성은 요소가 겹쳐서 표시될 때 겹치는 순서를 지정한다.
+	 * 이 속성에 지정한 값이 크면 작은 값을 지정한 요소보다 앞에 보이게 된다.
+	 **/
+	body { margin: 50px; }
+	header { border: 1px solid black; }
+	#wrap {
+		width: 800px;
+		height: 600px;
+		background-color: yellowgreen;		
+	}
+	#parent { 
+		width: 600px; 
+		height: 400px;
+		margin: 0px auto;
+		background-color: chocolate;
+	}
+	.box {
+		height: 100px;
+	}
+	.box1 {
+		background-color: #ff5070;
+		position: relative;
+		left: 50px;
+		top: 50px;		
+	}
+	.box2 {
+		background-color: #5070ff;
+		position: absolute;
+		left: 100px;
+		top: 100px;
+		width: 100px;		
+	}
+	.box3 {		
+		background-color: #50ff90;
+		position: fixed;		
+		top: 100px;
+		left: 100px;
+		width: 100px;
+	}
+	.box4 {		
+		background-color: #9050ef;
+		position: sticky;
+		top: 0px;		
+	}
+	.box5 {
+		height: 50px;
+		background-color: cadetblue;
+		position: sticky;
+		top: 0;
+	}
+	#bottom { height: 1000px; }	
+</style>
+</head>
+<body>
+	<header>
+		<h1>요소를 원하는 위치에 배치 - position 속성</h1>
+	</header>
+	<div id="wrap">
+		<div id="parent">
+			<div class="box box1">box1</div>
+			<div class="box box2">box2</div>
+			<div class="box box3">box3</div>
+			<div class="box box4">box4</div>
+		</div>
+	</div>
+	<div class="box box5">box5</div>
+	<div id="bottom"></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+    //화살표 함수 ( 자바에서는 람다함수/ 한줄짜리 함수)
+    //익명함수 let func= (매개변수) => {함수 본문} // 변수에 func 함수를 할당한다. 39page 
+    
+        let circle10 = function() {
+            document.write(`반지름이 10인 원의 넓이: ${10 * 10 * 3.14} <br> ` )
+        }
+
+// * function이 없어지고 
+// * 괄호 다음에 화살표가 생긴다. 
+// * 내용이 한줄이면? {} 와  return 을 생략 가능
+// ****  매개변수가 없는 화살표함수를 정의한 것
+let circle11 = () => document.write(`반지름이 10인 원의 넓이: ${10 * 10 * 3.14}`)
+
+// ------------------------------------------------------------
+// ****  매개변수가 1개 화살표함수를 정의한 것
+let circle0 = function(radius) {
+            return radius * radius * 3.14;
+        }
+// 위에거랑 같은 것을 화살표 함수로 정의
+let circle00 = radius => radius * radius * 3.14;
+document.write(circle0(5)+"<br>")
+// ------------------------------------------------------------
+let rectangle = (width,height) => width*height;
+let triangle = (width,height=5) => width*height /2; 
+// 함수호출
+document.write(rectangle(10,29)+"<br>");
+
+// ------------------------------------------------------------
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

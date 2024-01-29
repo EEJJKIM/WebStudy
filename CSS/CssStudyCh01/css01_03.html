@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>동일한 요소에 적용된 스타일 우선순위</title>
+<link type="text/css" href="css/external.css" rel="stylesheet" />
+<style>	
+	div {
+		font-size: 14px;
+	}
+</style>
+</head>
+<body>
+	body 요소의 폰트 크기는 외부 스타일에서 지정한 40px이 적용된다.
+	<div>
+		div 요소의 폰트 크기는 내부 스타일에서 지정한 14px이 적용된다.
+		<!--
+			동일한 요소에 동일한 스타일이 적용되었다면 우선순위는 다음과 같다.
+			1. !important; 가 적용된 스타일 속성
+			2. 인라인 요소의 style 속성에 적용된 스타일 속성
+			3. 내부 스타일 속성
+			4. 외부 스타일 속성
+			
+			아래 p 요소의 폰트 크기는 external.css에서 p 요소의 font-size에 
+			!important를 적용했기 때문에 20px이 우선 적용된다.
+		-->
+		<p style="font-size: 12px;">
+			p 요소의 폰트 크기는 인라인 스타일에서 지정한 12px이 적용되지 않고<br/>
+			external.css에서 !important로 지정한 20px이 우선 적용된다.
+		</p>
+	</div>
+</body>
+</html>

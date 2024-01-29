@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS의 단위 이해하기</title>
+	<style type="text/css">
+		/* font 관련 속성들은 상속되기 때문에 rem 단위는 최상위 html 요소의 font-size를
+		 * 기준으로 배수 크기로 표현되며 em과 %는 부모 요소의 font-size를 기준으로 각각
+		 * 배수 크기와 백분율 크기로 표현된다. 아래에서 font-size에 rem 단위를 사용했는데
+		 * html 요소에 font-size가 별도로 지정되어 있지 않기 때문에 html 문서의 기본
+		 * font-size인 16px이 적용되어 이 크기를 기준으로 지정한 배수 크기로 표현된다. 
+		 * 또한 em과 % 단위는 부모 요소가 기준이 되므로 p 요소의 부모인 body 요소의
+		 * font-size 12px를 기준으로 지정한 배수 또는 백분율 크기로 표현된다.
+		 **/		
+		body { font-size: 12px; }
+		p { width: 700px; height: 50px; }
+		.per75 { font-size: 75%; }		
+		.per150 { font-size: 150%; }
+		.em075 { font-size: 0.75em; }
+		.em150 { font-size: 1.5em; }
+		.rem075 { font-size: 0.75rem; }
+		.rem150 { font-size: 1.5rem; }
+		.px12 { font-size: 12px; }
+		.px16 { font-size: 16px; }		
+		
+		.black { background-color: black; color: white; }
+		.alpha50 { background-color: rgba(255,0, 0, 0.5); color: black; }
+		.alpha70 { background-color: rgba(200, 85, 85, 0.7); }
+		.alpha30 { background-color: hsla(108, 83%, 47%, 0.3); color: red; }
+		.blue { background-color: #0000FF; color: white; }
+	</style>	
+</head>
+<body>
+	<h2>CSS의 크기 단위와 색상 단위 이해하기</h2>
+	<p>HTML 문서에서 폰트의 기본 크기는 16px로 표시된다.</p>
+	<p class="per75 black">부모 요소 폰트 크기의 75% 크기</p>
+	<p class="per150 alpha50">부모 요소 폰트 크기의 150% 크기</p>	
+	<p class="em075 black">부모 요소 포트 크기의 0.75배 크기</p>
+	<p class="em150 blue">부모 요소 폰트 크기의 1.5배 크기</p>
+	<p class="rem075 black">루트 요소 폰트 크기의 0.75배 크기</p>
+	<p class="rem150 alpha70">루트 요소 폰트 크기의 1.5배 크기</p>
+	<p class="px12 alpha30">12px로 지정한 폰트 크기</p>
+	<p class="px16 alpha50">16px로 지정한 폰트 크기</p>	
+</body>
+</html>

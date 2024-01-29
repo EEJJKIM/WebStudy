@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>부정 선택자</title>
+<style>
+	fieldset { width: 300px; }
+	ul li{
+		list-style:none;
+		font-size: 16px;
+		margin-top: 10px;
+	}
+	ul li label{
+		float: left;
+		width: 80px;
+		line-height: 25px;
+	}
+	
+	/* input 요소 중에서 type="text"가 아닌 input 요소 선택 */
+	input:not([type="text"]) {		
+		background-color: maroon;
+		border: 1px solid #000;
+	}
+</style>
+</head>
+<body>
+  <section>
+  <h1>수강 등록하기</h1>
+  <form name="form1" action="#" method="post">
+  	<fieldset>
+		<legend>등록자 정보</legend>
+        	<ul>
+            	<li>
+                	<label for="name">이 름</label>
+                    <input type="text" name="name" id="name"></li>
+               <li>
+                	<label for="address">주 소</label>
+                    <input type="text" name="bank"></li>
+               	<li>
+               		<label for="contact">연락처</label>
+                   	<input type="tel" name="contact"></li>
+			</ul>  
+		</fieldset>        
+    </form>
+	</section>
+</body>
+</html>
+
+

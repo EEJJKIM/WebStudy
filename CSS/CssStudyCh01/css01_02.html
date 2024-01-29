@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스타일의 상속2</title>
+<style type="text/css">
+	ul {
+		background: black;
+		color: white;
+		list-style: square;
+	}
+</style>
+</head>
+<body>
+	<!-- 
+		ul 요소는 li 요소의 부모 요소로 ul 요소에 지정한 color 속성이 
+		자식인 li 요소로 상속되어 글자색이 흰색으로 표현된다.
+	-->
+	<section>
+		<h2>웹표준 도서 목록</h2>
+		<ul>
+			<li>HTML5+CSS3+JavaScript 웹 프로그래밍</li>			
+			<li>HTML과 CSS로 웹 프로그래밍 시작하기</li>
+		</ul>		
+		<h2>자바스크립트 도서 목록</h2>		
+		<ul>
+			<li>자바스크립트 웹 표준의 정석</li>			
+			<li>모던 자바스크립트 활용</li>
+		</ul>
+	</section>
+</body>
+</html>

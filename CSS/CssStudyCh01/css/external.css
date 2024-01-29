@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+body {
+	font-size: 40px;
+}
+div {
+	font-size: 20px;
+}
+p {
+	font-size: 20px !important;
+}

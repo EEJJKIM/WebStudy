@@ -1,0 +1,18 @@
+<!-- 예제 3-4 이미지 맵에 하이퍼링크 지정하기 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>이미지 부분 영역에 하이퍼링크 하기</title>
+</head>
+<body>	
+	<img src="images/doit_html+css+javascript.jpg" usemap="#doit_html" border="0" >
+	<map name="doit_html">
+		<area shape="circle" coords="225, 120, 50" alt="도서정보 자세히 보기"
+			href="https://www.yes24.com/Product/Goods/96674934" >
+		<area shape="poly" coords="80, 270, 204, 270, 203, 302, 225, 302, 
+			225, 320, 360, 320, 360, 360, 80, 360" alt="도서정보 보기"
+			href="https://www.yes24.com/Product/Goods/96674934" >
+	</map><br><br><br><br><br>	
+</body>
+</html>

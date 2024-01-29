@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>박스의 크기와 오버플로우</title>
+<style>
+	body{font-size:12px;}
+	div{
+		width:300px;
+		border: 1px solid blue
+	}
+
+	#box1{
+		padding:20px;
+		height:100px;
+		box-sizing: content-box;
+		overflow:hidden;
+	}
+	#box2{margin: 60px 0;
+		padding:20px;
+		height:100px;
+		box-sizing: border-box;
+		overflow: auto;
+	}
+</style>
+</head>
+<body>
+	<header>
+		<h1>박스의 크기와 오버플로우</h1>
+	</header>			
+	<div id="box1">
+		기본적으로 요소에 width와 height를 지정하면 그 크기는 박스 모델에서 콘텐트 영역에 대한 크기이다. 그래서 실제 박스의 너비는 width와 padding(좌, 우), margin(좌, 우)를 모두 더한 값이 크기가 된다.
+		만약 보다 직관적으로 width와 height를 통해서 전체 박스의 크기를 지정하고 싶다면 box-sizing 속성을 변경해 주면 된다. 이 box-sizing 속성의 기본 값은 content-box이며 이 값을 border-box로 변경해 주면 된다.
+		박스의 크기를 지정했을 때 콘텐츠의 내용이 길어서 안에 있는 내용이 밖으로 삐져나올 때가 있다. 이런 걸 오버플로우라고 한다. 이때 박스를 스크롤 되도록 하거나 삐져나온 걸 감춰줄 수 있다.
+	</div>
+	<div id="box2">
+		기본적으로 요소에 width와 height를 지정하면 그 크기는 박스 모델에서 콘텐트 영역에 대한 크기이다. 그래서 실제 박스의 너비는 width와 padding(좌, 우), margin(좌, 우)를 모두 더한 값이 크기가 된다.
+		만약 보다 직관적으로 width와 height를 통해서 전체 박스의 크기를 지정하고 싶다면 box-sizing 속성을 변경해 주면 된다. 이 box-sizing 속성의 기본 값은 content-box이며 이 값을 border-box로 변경해 주면 된다.
+		박스의 크기를 지정했을 때 콘텐츠의 내용이 길어서 안에 있는 내용이 밖으로 삐져나올 때가 있다. 이런 걸 오버플로우라고 한다. 이때 박스를 스크롤 되도록 하거나 삐져나온 걸 감춰줄 수 있다.
+	</div>
+</body>
+</html>

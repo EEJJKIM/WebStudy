@@ -1,0 +1,66 @@
+<!-- 예제 5-2 테이블을 이용한 과일 구입 현황 만들기 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>과일 구입 현황 만들기</title>
+	<style>
+		table { border-collapse: collapse; }
+		caption { 
+			padding: 50px 0 15px 0;
+			font-size: 24px;
+			font-weight: bold; 
+		}
+		th, td {
+			padding: 10px 10px;
+			border: 1px solid black;
+		}
+		thead > tr {
+			background-color: #F2F2F2;
+		}
+		.width150 { width: 150px; }
+		.width100 { width: 100px; }
+	</style>
+</head>
+<body>
+	<table>
+		<caption>5월 과일 구입 현황</caption>
+		<thead>
+			<tr>
+				<th class="width150">과일명</th>
+				<th class="width100">수량</th>
+				<th class="width100">단가</th>
+				<th class="width150">가격</th>
+				<th class="width150">비고</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>사과</td>
+				<td>10</td>
+				<td>3,000원</td>
+				<td>30,000원</td>
+				<td rowspan="3">바나나가<br/> 조금 비싸다</td>
+			</tr>
+			<tr>
+				<td>배</td>
+				<td>5</td>
+				<td>4,000원</td>
+				<td>20,000원</td>
+			</tr>
+			<tr>
+				<td>바나나</td>
+				<td>20</td>
+				<td>5,000원</td>
+				<td>50,000원</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>합계</td>
+				<td colspan="4">165,000원</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>
